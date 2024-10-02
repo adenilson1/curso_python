@@ -6,6 +6,8 @@ def soma(x,y):
 def multiplica(x,y):
     return x*y
 
+#essa funcao tem como objetivo adiar a execução da funcao 
+#principal ate o momento do fechamento
 def criar_funcao(funcao, x):
     def funcao_interna(y):
         return funcao(x,y)
