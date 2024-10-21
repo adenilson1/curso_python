@@ -13,4 +13,25 @@ produtos = [
 
 ]
 
+def filtrar_preco(produto):
+    return produto['preco'] > 10
+     
+
+
+"""
+novos_produtos = [
+    p for p in produtos
+    if p['preco'] > 10
+]
+"""
+#novos_produtos = filter(
+#    lambda p: p['preco'] > 100, 
+#    produtos
+#)
+novos_produtos = filter(
+    filtrar_preco,
+    produtos
+)
+
 print_iter(produtos)
+print_iter(novos_produtos)
