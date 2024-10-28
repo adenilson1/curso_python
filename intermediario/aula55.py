@@ -27,7 +27,9 @@ print(caminho_arquivo)
 #
 #arquivo.close()
 
+""""
 with open (caminho_arquivo, 'w+') as arquivo:
+    print(type(arquivo))
     arquivo.write('linha 1\r\n')
     arquivo.write('linha 2\n')
     arquivo.writelines(
@@ -51,3 +53,11 @@ print('#' * 40)
 
 with open (caminho_arquivo, 'r') as arquivo:
     print(arquivo.read())
+"""
+with open (caminho_arquivo, 'w') as arquivo:
+    print(type(arquivo))
+    arquivo.write('linha 1\r\n')
+    arquivo.write('linha 2\n')
+    arquivo.writelines(
+        ('linha 3\n','linha 4\n')
+    )
