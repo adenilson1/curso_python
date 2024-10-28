@@ -1,5 +1,6 @@
+import os
 
-caminho_arquivo = 'aula56.txt'
+caminho_arquivo = 'aula57.txt'
 
 
 with open (caminho_arquivo, 'w', encoding='utf8') as arquivo:
@@ -9,3 +10,6 @@ with open (caminho_arquivo, 'w', encoding='utf8') as arquivo:
     arquivo.writelines(
         ('linha 3\n','linha 4\n')
     )
+#os.unlink(caminho_arquivo) # remove arquivo
+#os.unlink(caminho_arquivo) # remove arquivo
+
