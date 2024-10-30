@@ -1,15 +1,5 @@
-"""
-Exercício - Lista de tarefas com desfazer e refazer
-Musica para codar =)
-Everybody wnats to rule the world - Tears for fears
-todo = [] -> lista de tarefas
-todo = ['fazer café] -> Adicionar fazer café
-todo = ['fazer cafe','caminhar'] -> adicionar caminhar
-desfazer = ['fazer cafe',] -> Refazer ['Caminhar]
-desfazer = [] -> Refazer ['caminhar', 'fazer cafe]
-refazer = todo ['fazer café']
-refazer = todo ['fazer cadr], 'caminhar'
-"""
+#evitando uso de condicionais - guard clause
+
 import os
 def listar(tarefas):
     print()
@@ -33,6 +23,7 @@ def desfazer(tarefas, tarefas_refazer):
     print(f'{tarefa=} foi removida da lista')
     tarefas_refazer.append(tarefa)
     print()
+    listar(tarefas)
 
     
 def refazer(tarefas, tarefas_refazer):
@@ -46,6 +37,7 @@ def refazer(tarefas, tarefas_refazer):
     tarefas.append(tarefa)
     print(f'{tarefa=} foi adicionada da lista')
     print()
+    listar(tarefas)
 
 def adicionar(tarefa, tarefas):
     print()
@@ -56,6 +48,7 @@ def adicionar(tarefa, tarefas):
     tarefas.append(tarefa)
     print(f'{tarefa=} foi adicionada da lista')
     print()
+    listar(tarefas)
 
 tarefas = []
 tarefas_refazer = []
@@ -63,23 +56,37 @@ while True:
     print('Comandos: listar, desfazer, refazer')
     tarefa = input('Digite uma tarefa ou comando: ')
 
-    if tarefa == 'listar':
-        listar(tarefas)
-        continue
-    elif tarefa == 'desfazer':
-        desfazer(tarefas, tarefas_refazer)
-        listar(tarefas)
-        continue
-    elif tarefa == 'refazer':
-        refazer(tarefas, tarefas_refazer)
-        listar(tarefas)
-        continue
+    comdados = {
+        'listar': lambda:listar(tarefas),
+        'desfazer':lambda: desfazer(tarefas, tarefas_refazer),
+        'refazer': lambda:refazer(tarefas, tarefas_refazer),
+        'clear': lambda:os.system('clear'),
+        'adicionar': lambda:adicionar(tarefa, tarefas),
+    }
 
-    elif tarefa == 'clear':
-        os.system('clear')
-        continue
+    comdado = comdados.get(tarefa) if comdados.get(tarefa) is not None else \
+         comdados['adicionar']
+    comdado()
 
-    else:
-        adicionar(tarefa, tarefas)
-        listar(tarefas)
-        continue
+
+    # if tarefa == 'listar':
+    #     listar(tarefas)
+    #     continue
+    # elif tarefa == 'desfazer':
+    #     desfazer(tarefas, tarefas_refazer)
+    #     listar(tarefas)
+    #     continue
+    # elif tarefa == 'refazer':
+    #     refazer(tarefas, tarefas_refazer)
+    #     listar(tarefas)
+    #     continue
+
+    # elif tarefa == 'clear':
+    #     os.system('clear')
+    #     continue
+
+    # else:
+    #     adicionar(tarefa, tarefas)
+    #     listar(tarefas)
+    #     continue
+
