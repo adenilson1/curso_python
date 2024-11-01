@@ -15,7 +15,7 @@ class Camera:
         self.filmando = True
 
 
-    def fotografrar(self):
+    def fotografar(self):
         if self.filmando:
             print(f'{self.nome} não pode fotografar filmando')
             return
@@ -36,12 +36,12 @@ c2 = Camera('Sony')
 
 c1.filmar()
 c1.filmar()
-c1.fotografrar()
+c1.fotografar()
 c1.parar_de_filmar()
-c1.fotografrar()
+c1.fotografar()
 print()
 c2.filmar()
 c2.filmar()
-c2.fotografrar()
+c2.fotografar()
 c2.parar_de_filmar()
-c2.fotografrar()
+c2.fotografar()
