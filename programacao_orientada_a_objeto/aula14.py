@@ -10,6 +10,9 @@
 # _NomeClasse__nome_attr_ou_method
 # só devem ser usado na classe em que foi declarada.
 
+from functools import partial
+
+
 class Foo:
     def __init__(self):
         self.public = 'isso é público'
