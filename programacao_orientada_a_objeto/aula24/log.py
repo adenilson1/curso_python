@@ -28,3 +28,4 @@ if __name__ == '__main__':
     l.log_error('Qualquer coisa')
     l.log_success('Que Legal')
    
+
