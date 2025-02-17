@@ -1,5 +1,9 @@
 #Abstração
-#Herança - é um 
+#Herança - é um
+from pathlib import Path
+
+LOG_FILE = Path(__file__).parent / 'log.text'
+
 class Log:
     def _log(self, msg): # assinatura do metodo
         raise NotImplementedError('Implemente o médoto log')
@@ -14,7 +18,12 @@ class Log:
 
 class LogFileMexin(Log):
     def _log(self, msg):
-        print(msg)
+        msg_formatada = f'{msg} ({self.__class__.__name__})'
+        print('Salvando...')
+        with open(LOG_FILE, 'a') as arquivo:
+            arquivo.write(msg_formatada)
+            arquivo.write('\n')
+
 
 
 
@@ -24,8 +33,13 @@ class LogPrintMixin(Log):
 
 
 if __name__ == '__main__':
-    l = LogPrintMixin()
-    l.log_error('Qualquer coisa')
-    l.log_success('Que Legal')
+    lp = LogPrintMixin()
+    lp.log_error('Qualquer coisa')
+    lp.log_success('Que Legal')
+
+    lf = LogFileMexin()
+    lf.log_error('Qualquer coisa')
+    lf.log_success('Que Legal')
+ 
    
 

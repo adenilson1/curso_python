@@ -1,1 +1,2 @@
-from log import Log
+from log import LogFileMexin,LogPrintMixin
+
