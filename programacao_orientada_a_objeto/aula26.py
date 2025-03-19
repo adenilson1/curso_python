@@ -43,4 +43,4 @@ class Foo(AbstractFoo):
     #     self._name = name
 
 foo = Foo('Bar')
-print(foo.name)
+print(foo.name1)
