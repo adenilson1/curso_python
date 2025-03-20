@@ -14,3 +14,43 @@
 # Sobrecarga de métodos (overload)
 # Sobreposição de métodos (override)
 
+from abc import ABC, abstractmethod
+
+class Notificacao:
+    def __init__(self, mensagem) -> None:
+        self.mensagem = mensagem
+
+    @abstractmethod
+    def enviar(self) -> bool:
+        ...
+
+class NotificacaoeMail(Notificacao):
+    def enviar(self) -> bool:
+        print('E-mail: enviado - ' , self.mensagem)
+        return True
+
+
+class NotificacaoSMS(Notificacao):
+    def enviar(self) -> bool:
+        print('E-SMS: enviado - ' , self.mensagem)
+        return True
+
+
+# n = NotificacaoeMail('TESTANDO NOTIFICAÇÃO')
+# n.enviar()
+
+def notificar(notificacao: Notificacao):
+    notificacao_enviada = notificacao.enviar()
+
+    if notificacao_enviada:
+        print('Notificação enviada')
+    else:
+        print('Notificação NÃO enviada')
+
+
+notificacao_email = NotificacaoeMail('testando e-mail')
+notificar(notificacao_email)
+
+notificacao_sms = NotificacaoSMS('testando SMS')
+notificar(notificacao_sms)
+
