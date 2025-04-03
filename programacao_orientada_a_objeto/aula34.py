@@ -18,7 +18,7 @@ class MyOpen:
         # print(class_exception)
         # print(exception_)
         # print(traceback_)
-        exception_.add_note('Minha nota')
+        #exception_.add_note('Minha nota')
 
         #return True # tratei a exceção
 
