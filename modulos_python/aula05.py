@@ -14,7 +14,7 @@ Por padrão dia da semana começa em 0 até 6
 
 import calendar
 
-# print(calendar.calendar(2022)) #->calendário do ano
+print(calendar.calendar(2022))  # ->calendário do ano
 # print(calendar.month(2025, 5)) #-> dias do mes do ano
 # print(calendar.monthrange(2025, 5))  # -> ultimo dia do mes de um ano
 # print(list(calendar.day_name))  # -> dias da semana
@@ -28,9 +28,9 @@ import calendar
 
 # print(calendar.monthcalendar(2025, 5))
 
-for week in calendar.monthcalendar(2025, 5):
-    # print(list(enumerate(week)))
-    for day in week:
-        if day == 0:
-            continue
-        print(day)
+# for week in calendar.monthcalendar(2025, 5):
+#     # print(list(enumerate(week)))
+#     for day in week:
+#         if day == 0:
+#             continue
+#         print(day)
